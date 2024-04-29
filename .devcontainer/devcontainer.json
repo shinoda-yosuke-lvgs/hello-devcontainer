@@ -14,12 +14,19 @@
 		}
 	},
 	"onCreateCommand": {
-		"mise-install": "mise install --yes",
+		"mise-install": "mise --yes install && mise --yes use -g usage",
 		"mise-activate-bash": "(echo; echo 'eval \"$(mise activate bash)\"'; echo 'eval \"$(mise hook-env -s bash)\"') >> ~/.bashrc",
-		"mise-activate-zsh": "(echo; echo 'eval \"$(mise activate zsh)\"'; echo 'eval \"$(mise hook-env -s zsh)\"') >> ~/.zshrc"
+		"mise-completion-bash": "(echo; echo 'eval \"$(mise completion bash)\"') >> ~/.bashrc",
+		"mise-activate-zsh": "(echo; echo 'eval \"$(mise activate zsh)\"'; echo 'eval \"$(mise hook-env -s zsh)\"') >> ~/.zshrc",
+		"mise-completion-zsh": "(echo; echo 'eval \"$(mise completion zsh)\"') >> ~/.zshrc",
+		"gh-completion-bash": "(echo; echo 'eval \"$(gh completion -s bash)\"') >> ~/.bashrc",
+		"gh-completion-zsh": "(echo; echo 'eval \"$(gh completion -s zsh)\"') >> ~/.zshrc"
 	},
 	"customizations": {
 		"vscode": {
+			"extensions": [
+				"mhutchie.git-graph"
+			],
 			"settings": {
 				"files.autoSave": "afterDelay",
 				"terminal.integrated.defaultProfile.linux": "zsh",

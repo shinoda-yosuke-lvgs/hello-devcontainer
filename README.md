@@ -1,6 +1,6 @@
-<div style="text-align:center;">
-<sapn style="font-size:40px">🐳Hello Dev Container🐳</span>
-</div>
+<h1 align="center">
+    <br/>🐳 Hello Dev Container 🐳<br/><br/>
+</h1>
 
 ## パッケージインストール時のポリシー
 

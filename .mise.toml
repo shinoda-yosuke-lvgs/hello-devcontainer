@@ -2,3 +2,4 @@
 node = "20"
 lefthook = "latest"
 terraform = "latest"
+rust = "latest"

@@ -5,24 +5,25 @@
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"ghcr.io/devcontainers/features/sshd:1": {},
-		"ghcr.io/devcontainers/features/github-cli:1": {},
-		"ghcr.io/devcontainers/features/aws-cli:1": {},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/sshd:1": {}, // `gh codespace`コマンドでCodespaceに接続できるようにしておく
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}, // Dockerをサポートしておく
 		"ghcr.io/devcontainers/features/nix:1": {
-			"packages": "mise"
+			"packages": "mise" // miseをインストールしておく
 		}
 	},
 	"containerEnv": {
 		"SHELDON_CONFIG_DIR": "${containerWorkspaceFolder}/.sheldon"
 	},
 	"onCreateCommand": {
+		// プラグインの管理および反映用にsheldonを導入しておく
 		"sheldon-install": "curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin",
 		"sheldon-source-bash": "(echo; echo 'export SHELDON_CONFIG_FILE=\"$SHELDON_CONFIG_DIR/plugins.bash.toml\"'; echo 'export SHELDON_DATA_DIR=\"$HOME/.local/share/sheldon/bash\"'; echo 'eval \"$(sheldon --quiet source)\"') >> ~/.bashrc",
 		"sheldon-source-zsh": "(echo; echo 'export SHELDON_CONFIG_FILE=\"$SHELDON_CONFIG_DIR/plugins.zsh.toml\"'; echo 'export SHELDON_DATA_DIR=\"$HOME/.local/share/sheldon/zsh\"'; echo 'eval \"$(sheldon --quiet source)\"') >> ~/.zshrc",
+		// miseで必要なプラグインをインストールしておく
 		"mise-use-usage": "mise --yes use -g usage"
 	},
 	"postCreateCommand": {
+		// miseの反映を行っておく
 		"mise-install": "mise --yes install"
 	},
 	"customizations": {

@@ -13,14 +13,14 @@
 			"packages": "mise"
 		}
 	},
+	"containerEnv": {
+		"SHELDON_CONFIG_DIR": "${containerWorkspaceFolder}/.sheldon"
+	},
 	"onCreateCommand": {
-		"mise-usage": "mise --yes use -g usage",
-		"mise-activate-bash": "(echo; echo 'eval \"$(mise activate bash)\"'; echo 'eval \"$(mise hook-env -s bash)\"') >> ~/.bashrc",
-		"mise-completion-bash": "(echo; echo 'eval \"$(mise completion bash)\"') >> ~/.bashrc",
-		"mise-activate-zsh": "(echo; echo 'eval \"$(mise activate zsh)\"'; echo 'eval \"$(mise hook-env -s zsh)\"') >> ~/.zshrc",
-		"mise-completion-zsh": "(echo; echo 'eval \"$(mise completion zsh)\"') >> ~/.zshrc",
-		"gh-completion-bash": "(echo; echo 'eval \"$(gh completion -s bash)\"') >> ~/.bashrc",
-		"gh-completion-zsh": "(echo; echo 'eval \"$(gh completion -s zsh)\"') >> ~/.zshrc"
+		"sheldon-install": "curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin",
+		"sheldon-source-bash": "(echo; echo 'export SHELDON_CONFIG_FILE=\"$SHELDON_CONFIG_DIR/plugins.bash.toml\"'; echo 'export SHELDON_DATA_DIR=\"$HOME/.local/share/sheldon/bash\"'; echo 'eval \"$(sheldon --quiet source)\"') >> ~/.bashrc",
+		"sheldon-source-zsh": "(echo; echo 'export SHELDON_CONFIG_FILE=\"$SHELDON_CONFIG_DIR/plugins.zsh.toml\"'; echo 'export SHELDON_DATA_DIR=\"$HOME/.local/share/sheldon/zsh\"'; echo 'eval \"$(sheldon --quiet source)\"') >> ~/.zshrc",
+		"mise-use-usage": "mise --yes use -g usage"
 	},
 	"postCreateCommand": {
 		"mise-install": "mise --yes install"
@@ -41,8 +41,4 @@
 			}
 		}
 	}
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
 }

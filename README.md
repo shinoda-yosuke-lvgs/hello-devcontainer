@@ -2,13 +2,13 @@
     <br/>🐳 Hello Dev Container 🐳<br/><br/>
 </h1>
 
-## 使い方
+## 起動方法
 
-- クラウド環境で作業する場合
+- ブラウザ上で作業する場合はこちらのボタンから開始してください。
     
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/shinoda-yosuke-lvgs/hello-devcontainer?quickstart=1)
 
-- ローカル環境で作業する場合
+- VSCodeで作業する場合はこちらのボタンから開始してください。
     
     <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/shinoda-yosuke-lvgs/hello-devcontainer"><img src="https://img.shields.io/badge/Open_in_VS_Code-blue?logo=visualstudiocode" height="32px"></a>
 
@@ -21,25 +21,29 @@
     ```
     </details>
 
-## 環境構築系コマンド実装時のポリシー
+## 使用例
 
-### devcontainerのonCreateCommnd等で実行するコマンド
+## 備忘録
+
+### 環境構築系コマンド実装時のポリシー
+
+#### devcontainerのonCreateCommnd等で実行するコマンド
 
 - 必要最低限に留める。
 
-### sheldonのinlineCommand等で実行するコマンド
+#### sheldonのinlineCommand等で実行するコマンド
 
 - complitionなどはsheldonで実行させる。
 
-## パッケージ導入時のポリシー
+### パッケージ導入時のポリシー
 
-### miseで管理するパッケージ
+#### miseで管理するパッケージ
 
 - バージョンを考慮する必要があるパッケージ。
 - CI/CDで使うパッケージ。
 - 管理しやすいので基本miseに寄せる。
 
-### devcontainerのfeaturesで管理するパッケージ
+#### devcontainerのfeaturesで管理するパッケージ
 
 - ビルドに時間が増加するのでなるべく使わない。
 - dockerなどのインストールの手間がかかるパッケージ。

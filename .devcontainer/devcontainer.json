@@ -1,36 +1,37 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
 	"name": "hello-devcontainer",
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
-	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"ghcr.io/devcontainers/features/sshd:1": {}, // `gh codespace`コマンドでCodespaceに接続できるようにしておく
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}, // Dockerをサポートしておく
+		// 以下の機能を有効化
+		"ghcr.io/devcontainers/features/sshd:1": {}, // `gh codespace ssh`をサポート
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}, // dockerをサポート
 		"ghcr.io/devcontainers/features/nix:1": {
-			"packages": "mise" // miseをインストールしておく
+			"packages": "mise" // ランタイム管理用にmiseをインストール
 		}
 	},
 	"containerEnv": {
-		"SHELDON_CONFIG_DIR": "${containerWorkspaceFolder}/.sheldon"
+		"SHELDON_CONFIG_DIR": "${containerWorkspaceFolder}/.sheldon" // sheldonの設定ファイルの保存先
 	},
 	"onCreateCommand": {
-		// プラグインの管理および反映用にsheldonを導入しておく
+		// プラグイン管理用にsheldonをインストール
 		"sheldon-install": "curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin",
 		"sheldon-source-bash": "(echo; echo 'export SHELDON_CONFIG_FILE=\"$SHELDON_CONFIG_DIR/plugins.bash.toml\"'; echo 'export SHELDON_DATA_DIR=\"$HOME/.local/share/sheldon/bash\"'; echo 'eval \"$(sheldon --quiet source)\"') >> ~/.bashrc",
 		"sheldon-source-zsh": "(echo; echo 'export SHELDON_CONFIG_FILE=\"$SHELDON_CONFIG_DIR/plugins.zsh.toml\"'; echo 'export SHELDON_DATA_DIR=\"$HOME/.local/share/sheldon/zsh\"'; echo 'eval \"$(sheldon --quiet source)\"') >> ~/.zshrc",
-		// miseで必要なプラグインをインストールしておく
+		// miseのcompitionに必要なプラグイン
 		"mise-use-usage": "mise --yes use -g usage"
 	},
 	"postCreateCommand": {
-		// miseの反映を行っておく
+		// 起動時に.mise.tomlの反映
 		"mise-install": "mise --yes install"
 	},
 	"customizations": {
 		"vscode": {
+			// 共通でインストールしたい拡張機能
 			"extensions": [
+				"GitHub.copilot",
 				"mhutchie.git-graph"
 			],
+			// 共通で適用させたい設定
 			"settings": {
 				"files.autoSave": "afterDelay",
 				"terminal.integrated.defaultProfile.linux": "zsh",

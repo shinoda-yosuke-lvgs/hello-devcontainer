@@ -32,7 +32,7 @@ git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcon
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 block-beta
-  columns 7
+  columns 8
 
   block:feature1:2
     columns 3
@@ -49,16 +49,18 @@ block-beta
     pgadmin
   end
 
-  space:1
+  space:2
 
-  space:7
+  space:8
 
   mise["mise（ランタイム管理）"]:2
   sheldon["sheldon（プラグイン管理）"]:2
   dind["docker（docker in docker）"]:2
   sshd["sshd"]:1
+  space:1
 
   ubuntu["ubuntu（ベースイメージ）"]:7
+  space:1
 
   mise --> feature1
   sheldon --> feature2

@@ -34,6 +34,17 @@ git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcon
 block-beta
   columns 8
 
+  ubuntu["ubuntu（ベースイメージ）"]:7
+  space:1
+
+  mise["mise（ランタイム管理）"]:2
+  sheldon["sheldon（プラグイン管理）"]:2
+  dind["docker（docker in docker）"]:2
+  sshd["sshd"]:1
+  space:1
+
+  space:8
+
   block:feature1:2
     columns 3
     awscli githubcli["github-cli"] terraform node rust go
@@ -50,17 +61,6 @@ block-beta
   end
 
   space:2
-
-  space:8
-
-  mise["mise（ランタイム管理）"]:2
-  sheldon["sheldon（プラグイン管理）"]:2
-  dind["docker（docker in docker）"]:2
-  sshd["sshd"]:1
-  space:1
-
-  ubuntu["ubuntu（ベースイメージ）"]:7
-  space:1
 
   mise --> feature1
   sheldon --> feature2
@@ -93,3 +93,4 @@ block-beta
     - [go](./examples/go/README.md)
     - [node](./examples/node/README.md)
     - [rust](./examples/rust/README.md)
+

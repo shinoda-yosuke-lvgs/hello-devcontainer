@@ -29,7 +29,8 @@
 			// 共通でインストールしたい拡張機能
 			"extensions": [
 				"GitHub.copilot",
-				"mhutchie.git-graph"
+				"mhutchie.git-graph",
+				"bierner.markdown-mermaid"
 			],
 			// 共通で適用させたい設定
 			"settings": {

@@ -2,7 +2,7 @@
     <br/>🐳 Hello Dev Container 🐳<br/><br/>
 </h1>
 
-## 💫　クイックスタート
+## 💫 クイックスタート
 
 <div align="center">
 
@@ -27,9 +27,10 @@ git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcon
 
 <br>
 
-## 📝 構成イメージ
+## 🧩 構成
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 block-beta
   columns 8
 
@@ -71,7 +72,7 @@ block-beta
 - docker in dockerでdevcontainer上でdockerを使えるようにしています
 - sshdを立ち上げておきます（codespace使用時にローカルマシンから`gh codespace ssh`コマンドで接続できるようになります）
 
-## 🔰 説明書
+## 🔰 チュートリアル
 
 - `mise`で管理されたコマンドはすぐに使えます
     - `aws --version`
@@ -81,7 +82,9 @@ block-beta
     - `rustc --version`
     - `go version`
     - `docker version`
+
 - `tabキー`による補完がある程度機能します
+
 - `examples`ディレクトリに各言語の動作確認用のサンプルがあります
     - [docker](./examples/docker/README.md)
     - [go](./examples/go/README.md)

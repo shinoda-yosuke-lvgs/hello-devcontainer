@@ -32,9 +32,10 @@ git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcon
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 block-beta
-  columns 8
+  columns 7
 
-  block:feature1:3
+  block:feature1:2
+    columns 3
     awscli githubcli["github-cli"] terraform node rust go
   end
     
@@ -50,14 +51,14 @@ block-beta
 
   space:1
 
-  space:8
+  space:7
 
-  mise["mise（ランタイム管理）"]:3
+  mise["mise（ランタイム管理）"]:2
   sheldon["sheldon（プラグイン管理）"]:2
   dind["docker（docker in docker）"]:2
   sshd["sshd"]:1
 
-  ubuntu["ubuntu（ベースイメージ）"]:8
+  ubuntu["ubuntu（ベースイメージ）"]:7
 
   mise --> feature1
   sheldon --> feature2

@@ -4,21 +4,28 @@
 
 ## 💫　クイックスタート
 
-**🌐 ブラウザ上で開発する場合**
+<div align="center">
+
+**↓ ブラウザ上で開発する場合 ↓**
     
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/shinoda-yosuke-lvgs/hello-devcontainer?quickstart=1)
 
-**💻 VSCodeで開発する場合**
+**↓ VSCodeで開発する場合 ↓**
     
 <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/shinoda-yosuke-lvgs/hello-devcontainer"><img src="https://img.shields.io/badge/Open_in_VS_Code-blue?logo=visualstudiocode" height="32px"></a>
 
+</div>
+<br>
+
 <details>
-<summary>上記ボタンから開けない場合</summary>
+<summary>上記ボタンから開けなかった場合</summary>
 
 ```bash
 git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcontainer && devcontainer open hello-devcontainer
 ```
 </details>
+
+<br>
 
 ## 📝 構成イメージ
 
@@ -46,7 +53,7 @@ block-beta
 
 ## 🔰 説明書
 
-- 起動した時点でmiseで管理されたコマンドが使えるようになっています
+- `mise`で管理されたコマンドはすぐに使えます
     - `aws --version`
     - `gh --version`
     - `terraform version`
@@ -54,4 +61,9 @@ block-beta
     - `rustc --version`
     - `go version`
     - `docker version`
-- 起動した時点で`tabキー`による補完がある程度機能します
+- `tabキー`による補完がある程度機能します
+- `examples`ディレクトリに各言語の動作確認用のサンプルがあります
+    - [docker](./examples/docker/README.md)
+    - [go](./examples/go/README.md)
+    - [node](./examples/node/README.md)
+    - [rust](./examples/rust/README.md)

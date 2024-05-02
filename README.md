@@ -31,25 +31,45 @@ git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcon
 
 ```mermaid
 block-beta
-  columns 2
+  columns 8
 
-  block:s1:1
+  block:feature1:3
     awscli githubcli["github-cli"] terraform node rust go
   end
     
-  block:s2:1
+  block:feature2:2
     zshplugins["*.plugin.zsh"]
   end
 
-  space:2
+  block:feature3:2
+    nginx
+    postgresql
+    pgadmin
+  end
 
-  mise["mise（ランタイム管理）"]:1
-  sheldon["sheldon（プラグイン管理）"]:1
-  ubuntu["ubuntu（ベースイメージ） + docker in docker"]:2
+  space:1
 
-  mise --> s1
-  sheldon --> s2
+  space:8
+
+  mise["mise（ランタイム管理）"]:3
+  sheldon["sheldon（プラグイン管理）"]:2
+  dind["docker（docker in docker）"]:2
+  sshd["sshd"]:1
+
+  ubuntu["ubuntu（ベースイメージ）"]:8
+
+  mise --> feature1
+  sheldon --> feature2
+  dind --> feature3
 ```
+
+<br>
+
+- ubuntuのイメージ上で動きます
+- [.mise.toml](./.mise.toml)で定義しているツールがインストールされます
+- [.sheldon/plugins.zsh.toml](./.sheldon/plugins.zsh.toml)で定義しているプラグインがターミナルを開いた際に反映されます
+- docker in dockerでdevcontainer上でdockerを使えるようにしています
+- sshdを立ち上げておきます（codespace使用時にローカルマシンから`gh codespace ssh`コマンドで接続できるようになります）
 
 ## 🔰 説明書
 

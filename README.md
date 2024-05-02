@@ -2,49 +2,56 @@
     <br/>🐳 Hello Dev Container 🐳<br/><br/>
 </h1>
 
-## 起動方法
+## 💫　クイックスタート
 
-- ブラウザ上で作業する場合はこちらのボタンから開始してください。
+**🌐 ブラウザ上で開発する場合**
     
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/shinoda-yosuke-lvgs/hello-devcontainer?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/shinoda-yosuke-lvgs/hello-devcontainer?quickstart=1)
 
-- VSCodeで作業する場合はこちらのボタンから開始してください。
+**💻 VSCodeで開発する場合**
     
-    <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/shinoda-yosuke-lvgs/hello-devcontainer"><img src="https://img.shields.io/badge/Open_in_VS_Code-blue?logo=visualstudiocode" height="32px"></a>
+<a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/shinoda-yosuke-lvgs/hello-devcontainer"><img src="https://img.shields.io/badge/Open_in_VS_Code-blue?logo=visualstudiocode" height="32px"></a>
 
-    <details>
-    <summary>上記ボタンから開けない場合</summary>
+<details>
+<summary>上記ボタンから開けない場合</summary>
 
-    ```bash
-    git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcontainer &&
-    devcontainer open hello-devcontainer
-    ```
-    </details>
+```bash
+git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcontainer && devcontainer open hello-devcontainer
+```
+</details>
 
-## 使用例
+## 📝 構成イメージ
 
-## 備忘録
+```mermaid
+block-beta
+  columns 2
 
-### 環境構築系コマンド実装時のポリシー
+  block:s1:1
+    awscli githubcli["github-cli"] terraform node rust go
+  end
+    
+  block:s2:1
+    zshplugins["*.plugin.zsh"]
+  end
 
-#### devcontainerのonCreateCommnd等で実行するコマンド
+  space:2
 
-- 必要最低限に留める。
+  mise["mise（ランタイム管理）"]:1
+  sheldon["sheldon（プラグイン管理）"]:1
+  ubuntu["ubuntu（ベースイメージ） + docker in docker"]:2
 
-#### sheldonのinlineCommand等で実行するコマンド
+  mise --> s1
+  sheldon --> s2
+```
 
-- complitionなどはsheldonで実行させる。
+## 🔰 説明書
 
-### パッケージ導入時のポリシー
-
-#### miseで管理するパッケージ
-
-- バージョンを考慮する必要があるパッケージ。
-- CI/CDで使うパッケージ。
-- 管理しやすいので基本miseに寄せる。
-
-#### devcontainerのfeaturesで管理するパッケージ
-
-- ビルドに時間が増加するのでなるべく使わない。
-- dockerなどのインストールの手間がかかるパッケージ。
-- なるべくDev Container Spec Maintainers(`ghcr.io/devcontainers/features/*`)から提供されるパッケージだけにする。
+- 起動した時点でmiseで管理されたコマンドが使えるようになっています
+    - `aws --version`
+    - `gh --version`
+    - `terraform version`
+    - `node --version`
+    - `rustc --version`
+    - `go version`
+    - `docker version`
+- 起動した時点で`tabキー`による補完がある程度機能します

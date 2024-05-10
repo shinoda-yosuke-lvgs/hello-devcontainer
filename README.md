@@ -2,8 +2,6 @@
     <br/>🐳 Hello Dev Container 🐳<br/><br/>
 </h1>
 
-## 💫 クイックスタート
-
 <div align="center">
 
 **↓ ブラウザ上で開発する場合 ↓**
@@ -14,18 +12,17 @@
     
 <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/shinoda-yosuke-lvgs/hello-devcontainer"><img src="https://img.shields.io/badge/Open_in_VS_Code-blue?logo=visualstudiocode" height="32px"></a>
 
-</div>
-<br>
+#
 
-<details>
-<summary>上記ボタンから開けなかった場合</summary>
+**↓ VSCodeで開発する場合（コマンドVer.） ↓**
 
 ```bash
 git clone https://github.com/shinoda-yosuke-lvgs/hello-devcontainer hello-devcontainer && devcontainer open hello-devcontainer
 ```
-</details>
 
-<br>
+</div>
+
+#
 
 ## 🧩 構成
 
